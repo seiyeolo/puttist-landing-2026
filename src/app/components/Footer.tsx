@@ -70,22 +70,18 @@ export const Footer: React.FC = () => {
         
         {/* 하단 링크들 - 버튼이 가리지 않도록 충분한 여백 */}
         <div className="mt-4 md:mt-6 flex flex-col md:flex-row gap-3 md:gap-8 justify-center items-center text-xs md:text-sm px-4">
-          <a 
-            href="https://www.puttist.com/privacy-policy" 
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#9CA3AF] hover:text-[#FF8C42] transition-colors underline"
+          <button 
+            onClick={() => alert('개인정보처리방침 페이지를 준비 중입니다.')}
+            className="text-[#9CA3AF] hover:text-[#FF8C42] transition-colors underline cursor-pointer"
           >
             개인정보처리방침
-          </a>
-          <a 
-            href="https://www.puttist.com/terms-of-service" 
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#9CA3AF] hover:text-[#FF8C42] transition-colors underline"
+          </button>
+          <button 
+            onClick={() => alert('이용약관 페이지를 준비 중입니다.')}
+            className="text-[#9CA3AF] hover:text-[#FF8C42] transition-colors underline cursor-pointer"
           >
             이용약관
-          </a>
+          </button>
           <a 
             href="mailto:info@puttist.com" 
             className="text-[#9CA3AF] hover:text-[#FF8C42] transition-colors underline"
