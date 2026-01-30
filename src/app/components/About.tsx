@@ -51,6 +51,20 @@ export const About: React.FC = () => {
             </p>
           </div>
 
+          {/* Core Concept Card - 20 Putters */}
+          <div className={`p-12 bg-gradient-to-br from-[rgba(255,140,66,0.1)] to-[rgba(255,140,66,0.05)] border-2 border-[#FF8C42] rounded-2xl shadow-[0_20px_60px_rgba(255,140,66,0.2)] transition-all duration-700 delay-250 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+            <h3 className="text-[#FF8C42] text-3xl mb-6 text-center font-bold">{t('about.core_concept_title')}</h3>
+            <p className="text-lg leading-relaxed text-white text-center">
+              {t('about.core_concept_text')}
+            </p>
+            <div className="mt-8 flex justify-center">
+              <div className="inline-flex items-center gap-3 px-6 py-3 bg-[#FF8C42] rounded-lg">
+                <span className="text-2xl">🏌️</span>
+                <span className="text-white font-bold">실전 그린보다 먼저 학습해야 하는 필수 코스</span>
+              </div>
+            </div>
+          </div>
+
           {/* Innovation Title */}
           <div className="text-center my-12">
             <h3 className="text-[#FF8C42] text-3xl mb-4">{t('about.innovation_title')}</h3>

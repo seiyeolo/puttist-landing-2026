@@ -5,6 +5,7 @@ import { CountdownBanner } from '@/app/components/CountdownBanner';
 import { Features } from '@/app/components/Features';
 import { Technology } from '@/app/components/Technology';
 import { About } from '@/app/components/About';
+import { Comparison } from '@/app/components/Comparison';
 import { VideoDemo } from '@/app/components/VideoDemo';
 import { ContactForm } from '@/app/components/ContactForm';
 import { FAQ } from '@/app/components/FAQ';
@@ -24,6 +25,7 @@ export default function App() {
         <Features />
         <Technology />
         <About />
+        <Comparison />
         <VideoDemo />
         <ContactForm />
         <FAQ />
