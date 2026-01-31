@@ -74,7 +74,6 @@ export const AdminSettings: React.FC = () => {
                       className="sr-only"
                     />
                     <div
-                      onClick={() => setSettings(prev => ({ ...prev, enabled: !prev.enabled }))}
                       className={`w-14 h-8 rounded-full transition-colors ${
                         settings.enabled ? 'bg-[#FF8C42]' : 'bg-gray-600'
                       }`}
