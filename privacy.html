@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개인정보처리방침 - PUTTIST II</title>
+    <style>
+        :root {
+            --color-primary: #FF8C42;
+            --color-bg-dark: #0A1628;
+            --color-bg-card: #0F1E35;
+            --color-text-primary: #E5E7EB;
+            --color-text-secondary: #9CA3AF;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--color-bg-dark);
+            color: var(--color-text-primary);
+            line-height: 1.8;
+        }
+        nav {
+            position: sticky; top: 0;
+            background: rgba(10,22,40,0.97);
+            backdrop-filter: blur(10px);
+            padding: 1.2rem 2rem;
+            border-bottom: 1px solid rgba(255,140,66,0.15);
+            z-index: 100;
+            display: flex; align-items: center; justify-content: space-between;
+        }
+        .logo img { height: 36px; }
+        .back-btn {
+            color: var(--color-primary); text-decoration: none;
+            font-weight: 600; font-size: 0.95rem;
+        }
+        .back-btn:hover { opacity: 0.75; }
+        .container { max-width: 860px; margin: 0 auto; padding: 4rem 2rem 6rem; }
+        .page-header {
+            text-align: center; margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255,140,66,0.15);
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(255,140,66,0.12); color: var(--color-primary);
+            font-size: 0.8rem; font-weight: 700; letter-spacing: 2px;
+            text-transform: uppercase; padding: 0.4rem 1rem; border-radius: 20px; margin-bottom: 1rem;
+        }
+        .page-header h1 { font-size: 2.2rem; font-weight: 800; margin-bottom: 0.75rem; }
+        .page-header p { color: var(--color-text-secondary); font-size: 0.95rem; }
+        .card {
+            background: var(--color-bg-card);
+            border: 1px solid rgba(255,140,66,0.1);
+            border-radius: 14px; padding: 2rem 2.5rem; margin-bottom: 1.5rem;
+        }
+        .card h2 {
+            font-size: 1.1rem; font-weight: 700; color: var(--color-primary);
+            margin-bottom: 1rem; display: flex; align-items: center; gap: 0.6rem;
+        }
+        .num {
+            display: inline-flex; align-items: center; justify-content: center;
+            width: 26px; height: 26px;
+            background: rgba(255,140,66,0.15); border-radius: 50%;
+            font-size: 0.8rem; font-weight: 800;
+        }
+        .card p, .card li { color: var(--color-text-secondary); font-size: 0.95rem; line-height: 1.9; }
+        .card ul { list-style: none; padding: 0; }
+        .card ul li { padding: 0.3rem 0 0.3rem 1.2rem; position: relative; }
+        .card ul li::before { content: '·'; position: absolute; left: 0; color: var(--color-primary); font-weight: 700; }
+        table { width: 100%; border-collapse: collapse; margin-top: 0.75rem; font-size: 0.9rem; }
+        th { background: rgba(255,140,66,0.1); color: var(--color-primary); font-weight: 700; padding: 0.7rem 1rem; text-align: left; border: 1px solid rgba(255,140,66,0.15); }
+        td { padding: 0.7rem 1rem; border: 1px solid rgba(255,255,255,0.06); color: var(--color-text-secondary); }
+        tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+        .highlight {
+            background: rgba(255,140,66,0.07);
+            border-left: 3px solid var(--color-primary);
+            border-radius: 0 8px 8px 0;
+            padding: 1rem 1.25rem; margin-top: 0.75rem;
+            font-size: 0.9rem; color: var(--color-text-secondary);
+        }
+        .contact-box {
+            background: rgba(255,140,66,0.06);
+            border: 1px solid rgba(255,140,66,0.2);
+            border-radius: 10px; padding: 1.2rem 1.5rem; margin-top: 0.75rem;
+        }
+        .contact-box p { margin-bottom: 0.3rem; }
+        .footer-note {
+            text-align: center; color: var(--color-text-secondary);
+            font-size: 0.85rem; margin-top: 3rem; padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+        a { color: var(--color-primary); }
+        @media (max-width: 600px) {
+            .container { padding: 2rem 1rem 4rem; }
+            .card { padding: 1.5rem; }
+            .page-header h1 { font-size: 1.7rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="index.html" class="logo">
+        <img src="https://static.wixstatic.com/media/461f66_b251caa1f1a34ae1a0c28e1a522c592d~mv2.png/v1/fill/w_259,h_41,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/puttist_logo_white_II.png" alt="PUTTIST II">
+    </a>
+    <a href="index.html" class="back-btn">← 홈으로 돌아가기</a>
+</nav>
+
+<div class="container">
+
+    <div class="page-header">
+        <span class="badge">Privacy Policy</span>
+        <h1>개인정보처리방침</h1>
+        <p>시행일: 2026년 1월 1일 &nbsp;|&nbsp; 최종 수정: 2026년 3월 5일</p>
+    </div>
+
+    <div class="card">
+        <h2><span class="num">1</span> 개인정보 수집 항목</h2>
+        <p style="margin-bottom:0.75rem;">퍼티스트(이하 "회사")는 아래와 같은 개인정보를 수집합니다.</p>
+        <table>
+            <tr><th>구분</th><th>수집 항목</th><th>필수/선택</th></tr>
+            <tr><td>문의 접수</td><td>이름, 이메일 주소, 연락처(전화번호)</td><td>필수</td></tr>
+            <tr><td>마케팅 동의</td><td>관심 카테고리(할인정보, 카탈로그, 체험신청, 뉴스레터)</td><td>선택</td></tr>
+            <tr><td>서비스 이용</td><td>접속 IP, 브라우저 종류, 방문 일시(자동 수집)</td><td>자동</td></tr>
+        </table>
+        <div class="highlight">※ 만 14세 미만 아동의 개인정보는 수집하지 않습니다.</div>
+    </div>
+
+    <div class="card">
+        <h2><span class="num">2</span> 개인정보 수집 및 이용 목적</h2>
+        <ul>
+            <li>제품 문의 및 고객 상담 답변 제공</li>
+            <li>무료 체험 신청 접수 및 안내</li>
+            <li>박람회·이벤트 할인 쿠폰 발송</li>
+            <li>제품 카탈로그 및 뉴스레터 발송 (동의 시)</li>
+            <li>서비스 개선을 위한 이용 현황 분석</li>
+            <li>법령 상 의무 이행</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2><span class="num">3</span> 개인정보 보유 및 이용 기간</h2>
+        <table>
+            <tr><th>항목</th><th>보유 기간</th><th>근거</th></tr>
+            <tr><td>문의·상담 정보</td><td>수집일로부터 3년</td><td>서비스 운영 필요성</td></tr>
+            <tr><td>마케팅 수신 동의</td><td>동의 철회 시까지</td><td>정보통신망법</td></tr>
+            <tr><td>전자상거래 기록</td><td>5년</td><td>전자상거래법</td></tr>
+            <tr><td>접속 로그</td><td>3개월</td><td>통신비밀보호법</td></tr>
+        </table>
+        <div class="highlight">단, 관련 법령 위반에 따른 수사·조사가 진행 중인 경우 해당 수사 종료 시까지 보관합니다.</div>
+    </div>
+
+    <div class="card">
+        <h2><span class="num">4</span> 개인정보 제3자 제공</h2>
+        <p>회사는 원칙적으로 이용자의 개인정보를 제3자에게 제공하지 않습니다. 다만 아래의 경우는 예외입니다.</p>
+        <ul>
+            <li>이용자가 사전에 동의한 경우</li>
+            <li>법령의 규정에 의하거나 수사기관의 적법한 요구가 있는 경우</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2><span class="num">5</span> 개인정보 처리 위탁</h2>
+        <table>
+            <tr><th>수탁 업체</th><th>위탁 업무</th></tr>
+            <tr><td>Formspree Inc.</td><td>문의 폼 데이터 수신 및 전달</td></tr>
+            <tr><td>Netlify Inc.</td><td>웹사이트 호스팅 및 배포</td></tr>
+        </table>
+    </div>
+
+    <div class="card">
+        <h2><span class="num">6</span> 이용자의 권리</h2>
+        <ul>
+            <li>개인정보 열람 요청</li>
+            <li>개인정보 정정·삭제 요청</li>
+            <li>개인정보 처리 정지 요청</li>
+            <li>마케팅 수신 동의 철회</li>
+        </ul>
+        <div class="highlight">권리 행사는 아래 개인정보 보호책임자에게 이메일 또는 전화로 연락하시면 지체 없이 처리합니다.</div>
+    </div>
+
+    <div class="card">
+        <h2><span class="num">7</span> 개인정보 보호책임자</h2>
+        <div class="contact-box">
+            <p><strong>회사명:</strong> 퍼티스트 (PUTTIST)</p>
+            <p><strong>책임자:</strong> 오세열</p>
+            <p><strong>이메일:</strong> <a href="mailto:info@puttist.com">info@puttist.com</a></p>
+            <p><strong>전화:</strong> 1644-9663</p>
+            <p><strong>운영시간:</strong> 평일 09:00 ~ 18:00</p>
+        </div>
+        <ul style="margin-top:0.75rem;">
+            <li>개인정보보호위원회: <a href="https://www.pipc.go.kr" target="_blank">www.pipc.go.kr</a> / 182</li>
+            <li>개인정보 침해신고센터: <a href="https://privacy.kisa.or.kr" target="_blank">privacy.kisa.or.kr</a> / 118</li>
+        </ul>
+    </div>
+
+    <div class="card">
+        <h2><span class="num">8</span> 방침 변경 고지</h2>
+        <p>본 개인정보처리방침은 법령·정책 변경에 따라 수정될 수 있으며, 변경 시 웹사이트 공지사항을 통해 사전 안내합니다.</p>
+    </div>
+
+    <div class="footer-note">
+        본 방침은 2026년 1월 1일부터 시행됩니다.<br>
+        &copy; 2026 PUTTIST. All rights reserved.
+    </div>
+
+</div>
+</body>
+</html>
