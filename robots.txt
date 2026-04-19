@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://puttist-deploy.vercel.app/sitemap.xml
