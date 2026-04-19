@@ -660,6 +660,9 @@
                         <button class="lang-option" data-lang="zh" style="width: 100%; text-align: left; padding: 0.75rem 1rem; border: none; background: transparent; color: white; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-family: 'Space Grotesk', sans-serif; transition: background 0.2s;">
                             <span>🇨🇳</span> 中文
                         </button>
+                        <button class="lang-option" data-lang="vi" style="width: 100%; text-align: left; padding: 0.75rem 1rem; border: none; background: transparent; color: white; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-family: 'Space Grotesk', sans-serif; transition: background 0.2s;">
+                            <span>🇻🇳</span> Tiếng Việt
+                        </button>
                     </div>
                 </div>
 
@@ -1213,7 +1216,51 @@
             }
         };
 
-        const languageLabels = { ko: '🇰🇷 한국어', en: '🇺🇸 English', ja: '🇯🇵 日本語', zh: '🇨🇳 中文' };
+            vi: {
+                'nav.features': 'Tính năng', 'nav.technology': 'Công nghệ', 'nav.about': 'Giới thiệu',
+                'nav.contact': 'Liên hệ', 'nav.buy': 'Mua ngay',
+                'hero.title': 'PUTTIST II', 'hero.subtitle': 'Tiêu chuẩn mới trong tập luyện putting kỹ thuật số',
+                'hero.description': 'Hệ thống luyện tập khoa học khác biệt với thảm putting truyền thống. Đo chính xác khoảng cách 20m và chiều rộng 1m bằng công nghệ laser dẫn đường.',
+                'hero.learn_more': 'Tìm hiểu thêm', 'hero.watch_demo': 'Xem demo', 'share.kakao': 'Chia sẻ qua KakaoTalk',
+                'countdown.title': 'Ưu đãi đặc biệt triển lãm', 'countdown.label': 'Thời gian còn lại:',
+                'countdown.days': 'Ngày', 'countdown.hours': 'Giờ', 'countdown.minutes': 'Phút', 'countdown.seconds': 'Giây',
+                'countdown.discount': 'Giảm thêm 10%',
+                'form.title': 'Đăng ký dùng thử miễn phí', 'form.submit': '✨ Gửi đăng ký',
+                'form.success': '✅ Đăng ký thành công! Chúng tôi sẽ liên hệ với bạn sớm.',
+                'form.name': 'Họ tên *', 'form.email': 'Email *', 'form.phone': 'Số điện thoại *',
+                'form.purpose': 'Mục đích sử dụng', 'form.purpose_personal': 'Luyện tập cá nhân',
+                'form.purpose_business': 'Mua cho doanh nghiệp', 'form.purpose_school': 'Trường học/Giáo dục',
+                'form.purpose_golf': 'Sân golf/Bãi tập', 'form.interest': 'Thông tin quan tâm (chọn nhiều)',
+                'form.interest_discount': 'Thông tin ưu đãi', 'form.interest_catalog': 'Nhận catalog',
+                'form.interest_demo': 'Đăng ký dùng thử', 'form.interest_newsletter': 'Đăng ký bản tin',
+                'form.message': 'Nội dung câu hỏi', 'form.privacy': 'Tôi đồng ý thu thập và sử dụng thông tin cá nhân',
+                'about.title': 'Câu chuyện PUTTIST', 'about.origin_title': 'Khởi nguồn',
+                'about.origin_text': 'PUTTIST ra đời năm 2010 sau khi đọc cuốn "The Putting Bible" của Dave Pelz. Làm chủ kiểm soát khoảng cách — một kỹ năng đó có thể thay đổi hoàn toàn trò chơi của bạn.',
+                'about.philosophy_title': 'Đồng hồ putting kỹ thuật số',
+                'about.philosophy_text': 'PUTTIST là đồng hồ putting kỹ thuật số, không chỉ là dụng cụ luyện tập. Luyện putting ở trình độ tour bất cứ lúc nào, bất cứ đâu.',
+                'about.innovation_title': 'Đổi mới của PUTTIST II',
+                'about.feature1_title': 'Thiết kế trắng cao cấp', 'about.feature1_desc': 'Thân máy và màn hình trắng sang trọng',
+                'about.feature2_title': 'Laser tăng cường', 'about.feature2_desc': 'Chức năng LASER READY tăng cường luyện hướng',
+                'about.feature3_title': 'Mở rộng lên 20m', 'about.feature3_desc': 'Khoảng cách đo từ 15m lên 20m',
+                'about.feature4_title': 'Sạc USB-C', 'about.feature4_desc': 'Sử dụng USB-C thay sạc riêng',
+                'about.feature5_title': '9 nhiệm vụ ngẫu nhiên', 'about.feature5_desc': '9 nhiệm vụ ngẫu nhiên đến 20m',
+                'about.feature6_title': 'Luyện 60 feet tại nhà', 'about.feature6_desc': 'Luyện putting dài 60 feet tại phòng khách',
+                'features.title': 'Tính năng cốt lõi', 'features.subtitle': 'Luyện putting chuyên nghiệp tại nhà',
+                'features.distance_title': 'Đo khoảng cách 20m', 'features.distance_desc': 'Đo chính xác đến 20 mét.',
+                'features.width_title': 'Đo chiều rộng 1m', 'features.width_desc': 'Phát hiện chính xác đến 1 mét chiều rộng.',
+                'features.portable_title': 'Tính di động', 'features.portable_desc': 'Dễ dàng cài đặt và sử dụng mọi lúc mọi nơi.',
+                'technology.title': 'Luyện tập khoa học khác biệt thảm putting truyền thống', 'technology.subtitle': 'Hoàn thiện putting với công nghệ laser',
+                'technology.precision_title': '✨ Độ chính xác laser', 'technology.precision_desc': 'Đo chính xác đến milimet',
+                'technology.data_title': '📊 Phân tích dữ liệu', 'technology.data_desc': 'Ghi lại và phân tích toàn bộ dữ liệu putting',
+                'technology.feedback_title': '🎯 Phản hồi tức thì', 'technology.feedback_desc': 'Xác nhận kết quả putting theo thời gian thực',
+                'technology.pro_title': '🏆 Luyện tập chuyên nghiệp', 'technology.pro_desc': 'Phương pháp khoa học của golf thủ chuyên nghiệp',
+                'demo.title': 'Xem PUTTIST II qua video', 'demo.subtitle': 'Khám phá cách sử dụng và tính năng qua video',
+                'cta.title': 'Nâng cao kỹ năng putting<br>cùng PUTTIST II ngay hôm nay', 'cta.subtitle': 'Bắt đầu luyện tập trình độ chuyên nghiệp tại nhà',
+                'cta.button_naver': 'Mua ngay (Naver)', 'cta.button_amazon': 'Mua trên Amazon'
+            }
+        };
+
+        const languageLabels = { ko: '🇰🇷 한국어', en: '🇺🇸 English', ja: '🇯🇵 日本語', zh: '🇨🇳 中文', vi: '🇻🇳 Tiếng Việt' };
         let currentLanguage = localStorage.getItem('puttist-language') || 'ko';
 
         function changeLanguage(lang) {
