@@ -152,6 +152,17 @@
         }
 
         #langButton {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.9rem;
             transition: var(--transition-default);
         }
 
@@ -160,13 +171,92 @@
             border-color: rgba(255, 140, 66, 0.4);
         }
 
+        #langDropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 0.5rem;
+            background: #1A2942;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            min-width: 150px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            overflow: hidden;
+        }
+
+        #langDropdown.open { display: block; }
+
         .lang-option {
+            width: 100%;
+            text-align: left;
+            padding: 0.75rem 1rem;
+            border: none;
+            background: transparent;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-family: 'Space Grotesk', sans-serif;
             transition: background 0.2s;
         }
 
-        .lang-option:hover {
-            background: rgba(255, 140, 66, 0.2);
+        .lang-option:hover { background: rgba(255, 140, 66, 0.2); }
+
+        /* 네비게이션 우측 영역 */
+        .nav-right { display: flex; align-items: center; gap: 1.5rem; }
+        .logo-link { text-decoration: none; color: inherit; }
+
+        /* 카카오 버튼 */
+        .kakao-btn {
+            background: #FEE500;
+            color: #000;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
         }
+
+        /* 카운트다운 배너 */
+        #countdownBanner {
+            background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
+            color: white;
+            padding: 2.2rem 2rem;
+            text-align: center;
+            position: sticky;
+            top: 70px;
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.01); } }
+
+        .countdown-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .countdown-title-group { display: flex; align-items: center; gap: 1rem; }
+        .countdown-fire { font-size: 2.5rem; line-height: 1.2; }
+        .countdown-title-text { font-weight: 800; font-size: 1.6rem; letter-spacing: -0.5px; line-height: 1.4; }
+        .countdown-timer-group { display: flex; align-items: center; gap: 1.5rem; }
+        .countdown-label-text { font-weight: 700; font-size: 1.3rem; line-height: 1.4; }
+        .countdown-digits { display: flex; gap: 0.8rem; font-family: 'Courier New', monospace; font-weight: 700; font-size: 1.6rem; }
+        .countdown-unit { background: rgba(255,255,255,0.25); padding: 0.6rem 1rem; border-radius: 10px; border: 2px solid rgba(255,255,255,0.4); }
+        .countdown-unit-days, .countdown-unit-mins, .countdown-unit-secs { min-width: 75px; }
+        .countdown-unit-hours { min-width: 85px; }
+        .countdown-unit-label { font-size: 1rem; margin-left: 4px; font-weight: 600; }
+        .countdown-badge { background: white; color: #FF6B35; padding: 0.8rem 2.5rem; border-radius: 35px; font-weight: 800; font-size: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.25); display: flex; align-items: center; gap: 0.5rem; }
+        .countdown-badge-icon { font-size: 1.8rem; }
 
         /* Hero Section */
         .hero {
@@ -571,6 +661,9 @@
                 width: 44px;
                 height: 44px;
             }
+
+            #countdownBanner { padding: 1.3rem 1rem; top: 60px; }
+            .countdown-inner { gap: 1rem; flex-direction: column; }
         }
 
         /* Scroll animations */
@@ -625,10 +718,10 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <a href="#" class="logo" style="text-decoration: none; color: inherit;">
+            <a href="#" class="logo logo-link">
                 <img src="https://static.wixstatic.com/media/461f66_b251caa1f1a34ae1a0c28e1a522c592d~mv2.png/v1/fill/w_259,h_41,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/puttist_logo_white_II.png" alt="PUTTIST II Logo" style="height: 40px; width: auto;">
             </a>
-            <div style="display: flex; align-items: center; gap: 1.5rem;">
+            <div class="nav-right">
                 <!-- 햄버거 메뉴 버튼 (BUG-05) -->
                 <button class="hamburger-btn" id="hamburgerBtn" aria-label="메뉴 열기">
                     <span></span><span></span><span></span>
@@ -636,33 +729,23 @@
                 <ul class="nav-links" id="navLinks">
                     <li><a href="#features" data-i18n="nav.features">Features</a></li>
                     <li><a href="#technology" data-i18n="nav.technology">Technology</a></li>
-                    <li><a href="#reviews">리뷰</a></li>
+                    <li><a href="#reviews" data-i18n="nav.reviews">리뷰</a></li>
                     <li><a href="#about" data-i18n="nav.about">About</a></li>
                     <li><a href="#contact-form" data-i18n="nav.contact">문의하기</a></li>
                 </ul>
 
                 <!-- Language Selector -->
-                <div class="language-selector" style="position: relative;">
-                    <button id="langButton" style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2); color: white; padding: 0.5rem 1rem; border-radius: 8px; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-family: 'Space Grotesk', sans-serif; font-size: 0.9rem;">
+                <div class="language-selector">
+                    <button id="langButton">
                         <span id="currentLang">🇰🇷 한국어</span>
                         <span style="font-size: 0.7rem;">▼</span>
                     </button>
-                    <div id="langDropdown" style="display: none; position: absolute; top: 100%; right: 0; margin-top: 0.5rem; background: #1A2942; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; min-width: 150px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5); z-index: 1000; overflow: hidden;">
-                        <button class="lang-option" data-lang="ko" style="width: 100%; text-align: left; padding: 0.75rem 1rem; border: none; background: transparent; color: white; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-family: 'Space Grotesk', sans-serif; transition: background 0.2s;">
-                            <span>🇰🇷</span> 한국어
-                        </button>
-                        <button class="lang-option" data-lang="en" style="width: 100%; text-align: left; padding: 0.75rem 1rem; border: none; background: transparent; color: white; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-family: 'Space Grotesk', sans-serif; transition: background 0.2s;">
-                            <span>🇺🇸</span> English
-                        </button>
-                        <button class="lang-option" data-lang="ja" style="width: 100%; text-align: left; padding: 0.75rem 1rem; border: none; background: transparent; color: white; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-family: 'Space Grotesk', sans-serif; transition: background 0.2s;">
-                            <span>🇯🇵</span> 日本語
-                        </button>
-                        <button class="lang-option" data-lang="zh" style="width: 100%; text-align: left; padding: 0.75rem 1rem; border: none; background: transparent; color: white; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-family: 'Space Grotesk', sans-serif; transition: background 0.2s;">
-                            <span>🇨🇳</span> 中文
-                        </button>
-                        <button class="lang-option" data-lang="vi" style="width: 100%; text-align: left; padding: 0.75rem 1rem; border: none; background: transparent; color: white; cursor: pointer; display: flex; align-items: center; gap: 0.5rem; font-family: 'Space Grotesk', sans-serif; transition: background 0.2s;">
-                            <span>🇻🇳</span> Tiếng Việt
-                        </button>
+                    <div id="langDropdown">
+                        <button class="lang-option" data-lang="ko"><span>🇰🇷</span> 한국어</button>
+                        <button class="lang-option" data-lang="en"><span>🇺🇸</span> English</button>
+                        <button class="lang-option" data-lang="ja"><span>🇯🇵</span> 日本語</button>
+                        <button class="lang-option" data-lang="zh"><span>🇨🇳</span> 中文</button>
+                        <button class="lang-option" data-lang="vi"><span>🇻🇳</span> Tiếng Việt</button>
                     </div>
                 </div>
 
@@ -672,43 +755,35 @@
     </nav>
 
     <!-- Countdown Banner -->
-    <div id="countdownBanner" style="background: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%); color: white; padding: 2.2rem 2rem; text-align: center; position: sticky; top: 70px; z-index: 999; box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3); animation: pulse 2s ease-in-out infinite;">
-        <div style="max-width: 1400px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 3rem; flex-wrap: wrap;">
-            <div style="display: flex; align-items: center; gap: 1rem;">
-                <span style="font-size: 2.5rem; line-height: 1.2;">🔥</span>
-                <span style="font-weight: 800; font-size: 1.6rem; letter-spacing: -0.5px; line-height: 1.4;" data-i18n="countdown.title">박람회 특별 할인 진행중</span>
+    <div id="countdownBanner">
+        <div class="countdown-inner">
+            <div class="countdown-title-group">
+                <span class="countdown-fire">🔥</span>
+                <span class="countdown-title-text" data-i18n="countdown.title">박람회 특별 할인 진행중</span>
             </div>
-            <div style="display: flex; align-items: center; gap: 1.5rem;">
-                <span style="font-weight: 700; font-size: 1.3rem; line-height: 1.4;" data-i18n="countdown.label">남은 시간:</span>
-                <div style="display: flex; gap: 0.8rem; font-family: 'Courier New', monospace; font-weight: 700; font-size: 1.6rem;">
-                    <div style="background: rgba(255,255,255,0.25); padding: 0.6rem 1rem; border-radius: 10px; min-width: 75px; border: 2px solid rgba(255,255,255,0.4);">
-                        <span id="countdown-days">00</span><span style="font-size: 1rem; margin-left: 4px; font-weight: 600;" data-i18n="countdown.days">일</span>
+            <div class="countdown-timer-group">
+                <span class="countdown-label-text" data-i18n="countdown.label">남은 시간:</span>
+                <div class="countdown-digits">
+                    <div class="countdown-unit countdown-unit-days">
+                        <span id="countdown-days">00</span><span class="countdown-unit-label" data-i18n="countdown.days">일</span>
                     </div>
-                    <div style="background: rgba(255,255,255,0.25); padding: 0.6rem 1rem; border-radius: 10px; min-width: 85px; border: 2px solid rgba(255,255,255,0.4);">
-                        <span id="countdown-hours">00</span><span style="font-size: 1rem; margin-left: 4px; font-weight: 600;" data-i18n="countdown.hours">시간</span>
+                    <div class="countdown-unit countdown-unit-hours">
+                        <span id="countdown-hours">00</span><span class="countdown-unit-label" data-i18n="countdown.hours">시간</span>
                     </div>
-                    <div style="background: rgba(255,255,255,0.25); padding: 0.6rem 1rem; border-radius: 10px; min-width: 75px; border: 2px solid rgba(255,255,255,0.4);">
-                        <span id="countdown-minutes">00</span><span style="font-size: 1rem; margin-left: 4px; font-weight: 600;" data-i18n="countdown.minutes">분</span>
+                    <div class="countdown-unit countdown-unit-mins">
+                        <span id="countdown-minutes">00</span><span class="countdown-unit-label" data-i18n="countdown.minutes">분</span>
                     </div>
-                    <div style="background: rgba(255,255,255,0.25); padding: 0.6rem 1rem; border-radius: 10px; min-width: 75px; border: 2px solid rgba(255,255,255,0.4);">
-                        <span id="countdown-seconds">00</span><span style="font-size: 1rem; margin-left: 4px; font-weight: 600;" data-i18n="countdown.seconds">초</span>
+                    <div class="countdown-unit countdown-unit-secs">
+                        <span id="countdown-seconds">00</span><span class="countdown-unit-label" data-i18n="countdown.seconds">초</span>
                     </div>
                 </div>
             </div>
-            <div style="background: white; color: #FF6B35; padding: 0.8rem 2.5rem; border-radius: 35px; font-weight: 800; font-size: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.25); display: flex; align-items: center; gap: 0.5rem;">
-                <span style="font-size: 1.8rem;">🎁</span>
+            <div class="countdown-badge">
+                <span class="countdown-badge-icon">🎁</span>
                 <span data-i18n="countdown.discount">10% 추가 할인</span>
             </div>
         </div>
     </div>
-
-    <style>
-        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.01); } }
-        @media (max-width: 768px) {
-            #countdownBanner { padding: 1.3rem 1rem; top: 60px; }
-            #countdownBanner > div { gap: 1rem; flex-direction: column; }
-        }
-    </style>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -726,7 +801,7 @@
                 <div class="button-group">
                     <a href="#features" class="cta-button" data-i18n="hero.learn_more">자세히 알아보기</a>
                     <a href="#demo" class="secondary-button" data-i18n="hero.watch_demo">데모 보기</a>
-                    <button id="kakaoShareBtn" class="secondary-button" style="background: #FEE500; color: #000; border: none; display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                    <button id="kakaoShareBtn" class="secondary-button kakao-btn">
                         <span data-i18n="share.kakao">카카오톡 공유</span>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M12 3C6.48 3 2 6.58 2 11c0 2.89 2.07 5.43 5.18 6.87-.23.82-.84 3.01-.97 3.49-.15.56.2.55.42.4.17-.12 2.49-1.66 3.44-2.3.62.08 1.27.12 1.93.12 5.52 0 10-3.58 10-8s-4.48-8-10-8z"/>
@@ -1048,7 +1123,7 @@
         // ============================================================
         const translations = {
             ko: {
-                'nav.features': '특징', 'nav.technology': '기술', 'nav.about': 'About',
+                'nav.features': '특징', 'nav.technology': '기술', 'nav.reviews': '리뷰', 'nav.about': 'About',
                 'nav.contact': '문의하기', 'nav.buy': '구매하기',
                 'hero.title': 'PUTTIST II', 'hero.subtitle': '디지털 퍼팅 연습의 새로운 기준',
                 'hero.description': '기존 퍼팅 매트와는 다른 과학적 훈련 시스템. 레이저 가이드 기술로 20m 거리와 1m 폭을 정밀하게 측정합니다.',
@@ -1091,7 +1166,7 @@
                 'cta.button_naver': '지금 구매하기 (네이버)', 'cta.button_amazon': 'Amazon에서 구매'
             },
             en: {
-                'nav.features': 'Features', 'nav.technology': 'Technology', 'nav.about': 'About',
+                'nav.features': 'Features', 'nav.technology': 'Technology', 'nav.reviews': 'Reviews', 'nav.about': 'About',
                 'nav.contact': 'Contact', 'nav.buy': 'Buy Now',
                 'hero.title': 'PUTTIST II', 'hero.subtitle': 'The New Standard in Digital Putting Practice',
                 'hero.description': 'A scientific training system unlike traditional putting mats. Precisely measures 20m distance and 1m width with laser guide technology.',
@@ -1133,7 +1208,7 @@
                 'cta.button_naver': 'Buy Now (Naver)', 'cta.button_amazon': 'Buy on Amazon'
             },
             ja: {
-                'nav.features': '特徴', 'nav.technology': '技術', 'nav.about': '概要',
+                'nav.features': '特徴', 'nav.technology': '技術', 'nav.reviews': 'レビュー', 'nav.about': '概要',
                 'nav.contact': 'お問い合わせ', 'nav.buy': '購入する',
                 'hero.title': 'PUTTIST II', 'hero.subtitle': 'デジタルパッティング練習の新基準',
                 'hero.description': 'レーザーガイド技術で20mの距離と1mの幅を正確に測定します。',
@@ -1174,7 +1249,7 @@
                 'cta.button_naver': '今すぐ購入（Naver）', 'cta.button_amazon': 'Amazonで購入'
             },
             zh: {
-                'nav.features': '特点', 'nav.technology': '技术', 'nav.about': '关于',
+                'nav.features': '特点', 'nav.technology': '技术', 'nav.reviews': '评价', 'nav.about': '关于',
                 'nav.contact': '联系我们', 'nav.buy': '立即购买',
                 'hero.title': 'PUTTIST II', 'hero.subtitle': '数字推杆练习的新标准',
                 'hero.description': '采用激光引导技术精确测量20米距离和1米宽度的科学训练系统。',
@@ -1213,11 +1288,9 @@
                 'demo.title': '视频展示PUTTIST II', 'demo.subtitle': '通过视频确认产品特点',
                 'cta.title': '用PUTTIST II<br>提升推杆技术', 'cta.subtitle': '在家开始专业级训练',
                 'cta.button_naver': '立即购买（Naver）', 'cta.button_amazon': '在Amazon购买'
-            }
-        };
-
+            },
             vi: {
-                'nav.features': 'Tính năng', 'nav.technology': 'Công nghệ', 'nav.about': 'Giới thiệu',
+                'nav.features': 'Tính năng', 'nav.technology': 'Công nghệ', 'nav.reviews': 'Đánh giá', 'nav.about': 'Giới thiệu',
                 'nav.contact': 'Liên hệ', 'nav.buy': 'Mua ngay',
                 'hero.title': 'PUTTIST II', 'hero.subtitle': 'Tiêu chuẩn mới trong tập luyện putting kỹ thuật số',
                 'hero.description': 'Hệ thống luyện tập khoa học khác biệt với thảm putting truyền thống. Đo chính xác khoảng cách 20m và chiều rộng 1m bằng công nghệ laser dẫn đường.',
@@ -1266,32 +1339,26 @@
         function changeLanguage(lang) {
             currentLanguage = lang;
             localStorage.setItem('puttist-language', lang);
+            document.documentElement.lang = lang;
             document.getElementById('currentLang').textContent = languageLabels[lang];
             document.querySelectorAll('[data-i18n]').forEach(element => {
                 const key = element.getAttribute('data-i18n');
                 if (translations[lang] && translations[lang][key]) element.textContent = translations[lang][key];
             });
-            document.getElementById('langDropdown').style.display = 'none';
+            document.getElementById('langDropdown').classList.remove('open');
         }
 
         document.getElementById('langButton').addEventListener('click', () => {
-            const dropdown = document.getElementById('langDropdown');
-            dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+            document.getElementById('langDropdown').classList.toggle('open');
         });
 
         document.querySelectorAll('.lang-option').forEach(option => {
             option.addEventListener('click', (e) => { e.preventDefault(); changeLanguage(option.getAttribute('data-lang')); });
         });
 
-        // 언어 옵션 hover 효과 (유틸리티 함수 사용)
-        addHoverEffect('.lang-option',
-            { background: 'rgba(255, 140, 66, 0.2)' },
-            { background: 'transparent' }
-        );
-
         document.addEventListener('click', (e) => {
             const langSelector = document.querySelector('.language-selector');
-            if (!langSelector.contains(e.target)) document.getElementById('langDropdown').style.display = 'none';
+            if (!langSelector.contains(e.target)) document.getElementById('langDropdown').classList.remove('open');
         });
 
         window.addEventListener('DOMContentLoaded', () => { changeLanguage(currentLanguage); });
