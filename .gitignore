@@ -1,0 +1,4 @@
+.vercel
+.DS_Store
+index_backup_*.html
+*_backup_*.html

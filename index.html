@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PUTTIST II는 공 하나로 최대 20m까지 퍼팅 거리감과 방향성을 훈련하는 디지털 퍼팅 미터입니다. 레이저 가이드와 랜덤 미션으로 집과 사무실에서도 실전 퍼팅 감각을 연습하세요.">
     <title>PUTTIST II - The Putting Meter</title>
     <style>
         /* ===== CSS 변수 시스템 (REFACTOR-01) ===== */
@@ -260,11 +261,11 @@
 
         /* Hero Section */
         .hero {
-            min-height: 100vh;
+            min-height: auto;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 6rem 2rem 4rem;
+            padding: 7rem 2rem 3rem;
             background: linear-gradient(135deg, var(--color-bg-dark) 0%, #1A2F4F 100%);
             position: relative;
             overflow: hidden;
@@ -316,8 +317,25 @@
         .hero-description {
             font-size: 1.125rem;
             color: #D1D5DB;
-            margin-bottom: 3rem;
+            margin-bottom: 1.25rem;
             line-height: 1.8;
+        }
+
+        /* P1 메시지 강화: Hero 거리감 철학 문구 */
+        .hero-proof {
+            margin: 1.25rem 0 2rem;
+            color: #F3F4F6;
+            font-size: 1.05rem;
+            line-height: 1.8;
+            font-weight: 500;
+            border-left: 3px solid var(--color-primary);
+            padding-left: 1rem;
+        }
+
+        /* P1 메시지 강화: 거리감 훈련 섹션 */
+        .distance-section {
+            padding: 6rem 2rem;
+            background: #0A1628;
         }
 
         .hero-image {
@@ -327,9 +345,14 @@
             justify-content: center;
         }
 
+        .hero-image img {
+            max-height: 460px;
+            object-fit: contain;
+        }
+
         /* Features Section */
         .features {
-            padding: 6rem 2rem;
+            padding: 4rem 2rem 5rem;
             background: #0F1B2D;
         }
 
@@ -789,18 +812,20 @@
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <h1>
-                    <span data-i18n="hero.title">PUTTIST</span> <span>II</span><br>
-                    The Putting Meter
-                </h1>
-                <p class="hero-subtitle" data-i18n="hero.subtitle">디지털 퍼팅 연습의 새로운 기준</p>
+                <h1 data-i18n="hero.title">퍼팅 거리감을 숫자로 훈련하세요</h1>
+                <p class="hero-subtitle" data-i18n="hero.subtitle">PUTTIST II · The Putting Meter</p>
                 <p class="hero-description" data-i18n="hero.description">
-                    기존 퍼팅 매트와는 다른 과학적 훈련 시스템.
-                    레이저 가이드 기술로 20m 거리와 1m 폭을 정밀하게 측정합니다.
+                    기존 퍼팅 매트와 다른 과학적 거리감 훈련.
+                    레이저 가이드 기술로 최대 20m 거리와 1m 폭을 정밀하게 측정합니다.
+                </p>
+                <!-- P1 메시지 강화: 거리감 철학 문구 -->
+                <p class="hero-proof fade-in" data-i18n-html="hero.proof">
+                    3퍼트를 줄이려면, 첫 퍼트를 넣는 연습보다 원하는 거리 안에 붙이는 연습이 먼저입니다.<br>
+                    PUTTIST II는 퍼팅 거리감을 숫자로 훈련하게 해주는 디지털 퍼팅미터입니다.
                 </p>
                 <div class="button-group">
-                    <a href="#features" class="cta-button" data-i18n="hero.learn_more">자세히 알아보기</a>
-                    <a href="#demo" class="secondary-button" data-i18n="hero.watch_demo">데모 보기</a>
+                    <a href="#buy" class="cta-button" data-i18n="hero.learn_more">지금 구매하기</a>
+                    <a href="#demo" class="secondary-button" data-i18n="hero.watch_demo">데모 영상 보기</a>
                     <button id="kakaoShareBtn" class="secondary-button kakao-btn">
                         <span data-i18n="share.kakao">카카오톡 공유</span>
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
@@ -835,6 +860,33 @@
                     <div class="feature-icon">🎒</div>
                     <h3 data-i18n="features.portable_title">휴대 편의성</h3>
                     <p data-i18n="features.portable_desc">언제 어디서나 간편하게 설치하고 사용할 수 있습니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- P1 메시지 강화: 거리감 훈련 섹션 -->
+    <section class="distance-section" id="distance-training">
+        <div class="section-container">
+            <h2 class="section-title fade-in" data-i18n="distance.title">3퍼트를 줄이는 시작은 거리감입니다</h2>
+            <p class="section-subtitle fade-in" data-i18n="distance.subtitle">
+                대부분의 퍼팅 연습은 홀에 넣는 연습에 집중합니다. 하지만 실제 라운드에서 스코어를 줄이는 핵심은 첫 퍼트를 홀 근처에 안정적으로 붙이는 거리감입니다.
+            </p>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">🎯</div>
+                    <h3 data-i18n="distance.problem_title">문제: 3퍼트는 첫 퍼트 거리감에서 시작됩니다</h3>
+                    <p data-i18n="distance.problem_desc">짧은 퍼트만 반복하면 롱퍼트 거리감은 좋아지기 어렵습니다.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">📊</div>
+                    <h3 data-i18n="distance.training_title">훈련: 원하는 거리 안에 붙이는 감각을 반복합니다</h3>
+                    <p data-i18n="distance.training_desc">3m, 5m, 10m, 20m 거리감을 숫자로 확인하며 연습합니다.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">📐</div>
+                    <h3 data-i18n="distance.change_title">변화: 감이 아니라 기준이 생깁니다</h3>
+                    <p data-i18n="distance.change_desc">오늘의 거리감을 확인하고, 내일 다시 같은 거리감을 재현합니다.</p>
                 </div>
             </div>
         </div>
@@ -963,7 +1015,7 @@
     <section class="contact-form-section" id="contact-form" style="padding: 6rem 2rem; background: linear-gradient(135deg, #0A1628 0%, #1A2F4F 100%);">
         <div class="section-container" style="max-width: 900px;">
             <h2 class="section-title fade-in" data-i18n="form.title" style="text-align: center; margin-bottom: 1rem;">무료 체험 신청하기</h2>
-            <p class="section-subtitle fade-in" data-i18n="form.subtitle" style="text-align: center; color: #9CA3AF; margin-bottom: 3rem;">
+            <p class="section-subtitle fade-in" data-i18n-html="form.subtitle" style="text-align: center; color: #9CA3AF; margin-bottom: 3rem;">
                 박람회 방문자 특별 혜택! 지금 신청하시면 <span style="color: #FF8C42; font-weight: 700;">10% 할인 쿠폰</span>을 드립니다
             </p>
 
@@ -1025,8 +1077,8 @@
     <!-- CTA Section -->
     <section class="cta-section" id="buy">
         <div class="cta-content">
-            <h2 class="fade-in" data-i18n="cta.title">지금 PUTTIST II와 함께<br>퍼팅 실력을 향상시키세요</h2>
-            <p class="fade-in" data-i18n="cta.subtitle">프로 수준의 훈련을 집에서 시작하세요</p>
+            <h2 class="fade-in" data-i18n-html="cta.title">지금 PUTTIST II와 함께<br>퍼팅 실력을 향상시키세요</h2>
+            <p class="fade-in" data-i18n="cta.subtitle">오늘도 1m 퍼팅만 반복하고 계신가요? 이제는 3m, 5m, 10m, 20m 거리감을 몸에 익힐 차례입니다.</p>
             <div class="button-group">
                 <a href="https://smartstore.naver.com/3puttkiller" target="_blank" class="cta-button" data-i18n="cta.button_naver">지금 구매하기 (네이버)</a>
                 <a href="https://www.amazon.com/dp/B0CRK3JKXT" target="_blank" class="secondary-button" data-i18n="cta.button_amazon">Amazon에서 구매</a>
@@ -1125,9 +1177,9 @@
             ko: {
                 'nav.features': '특징', 'nav.technology': '기술', 'nav.reviews': '리뷰', 'nav.about': 'About',
                 'nav.contact': '문의하기', 'nav.buy': '구매하기',
-                'hero.title': 'PUTTIST II', 'hero.subtitle': '디지털 퍼팅 연습의 새로운 기준',
-                'hero.description': '기존 퍼팅 매트와는 다른 과학적 훈련 시스템. 레이저 가이드 기술로 20m 거리와 1m 폭을 정밀하게 측정합니다.',
-                'hero.learn_more': '자세히 알아보기', 'hero.watch_demo': '데모 보기',
+                'hero.title': '퍼팅 거리감을 숫자로 훈련하세요', 'hero.subtitle': 'PUTTIST II · The Putting Meter',
+                'hero.description': '기존 퍼팅 매트와 다른 과학적 거리감 훈련. 레이저 가이드 기술로 최대 20m 거리와 1m 폭을 정밀하게 측정합니다.',
+                'hero.learn_more': '지금 구매하기', 'hero.watch_demo': '데모 영상 보기',
                 'share.kakao': '카카오톡 공유',
                 'countdown.title': '박람회 특별 할인 진행중', 'countdown.label': '남은 시간:',
                 'countdown.days': '일', 'countdown.hours': '시간', 'countdown.minutes': '분', 'countdown.seconds': '초',
@@ -1162,7 +1214,7 @@
                 'technology.feedback_title': '🎯 즉각 피드백', 'technology.feedback_desc': '실시간으로 퍼팅 결과를 확인하고 즉시 교정',
                 'technology.pro_title': '🏆 프로 훈련', 'technology.pro_desc': '프로 골퍼들이 사용하는 과학적 훈련 방법',
                 'demo.title': '동영상으로 보는 PUTTIST II', 'demo.subtitle': '제품 사용 방법과 특징을 영상으로 확인하세요',
-                'cta.title': '지금 PUTTIST II와 함께<br>퍼팅 실력을 향상시키세요', 'cta.subtitle': '프로 수준의 훈련을 집에서 시작하세요',
+                'cta.title': '지금 PUTTIST II와 함께<br>퍼팅 실력을 향상시키세요', 'cta.subtitle': '오늘도 1m 퍼팅만 반복하고 계신가요? 이제는 3m, 5m, 10m, 20m 거리감을 몸에 익힐 차례입니다.',
                 'cta.button_naver': '지금 구매하기 (네이버)', 'cta.button_amazon': 'Amazon에서 구매'
             },
             en: {
@@ -1333,17 +1385,87 @@
             }
         };
 
+
+        // ===== P1 language repair: restore Korean baseline and translate newly added keys =====
+        Object.assign(translations.ko, {
+            'hero.proof': '3퍼트를 줄이려면, 첫 퍼트를 넣는 연습보다 원하는 거리 안에 붙이는 연습이 먼저입니다.<br>PUTTIST II는 퍼팅 거리감을 숫자로 훈련하게 해주는 디지털 퍼팅미터입니다.',
+            'distance.title': '3퍼트를 줄이는 시작은 거리감입니다',
+            'distance.subtitle': '대부분의 퍼팅 연습은 홀에 넣는 연습에 집중합니다. 하지만 실제 라운드에서 스코어를 줄이는 핵심은 첫 퍼트를 홀 근처에 안정적으로 붙이는 거리감입니다.',
+            'distance.problem_title': '문제: 3퍼트는 첫 퍼트 거리감에서 시작됩니다',
+            'distance.problem_desc': '짧은 퍼트만 반복하면 롱퍼트 거리감은 좋아지기 어렵습니다.',
+            'distance.training_title': '훈련: 원하는 거리 안에 붙이는 감각을 반복합니다',
+            'distance.training_desc': '3m, 5m, 10m, 20m 거리감을 숫자로 확인하며 연습합니다.',
+            'distance.change_title': '변화: 감이 아니라 기준이 생깁니다',
+            'distance.change_desc': '오늘의 거리감을 확인하고, 내일 다시 같은 거리감을 재현합니다.',
+            'form.subtitle': '박람회 방문자 특별 혜택! 지금 신청하시면 <span style="color: #FF8C42; font-weight: 700;">10% 할인 쿠폰</span>을 드립니다'
+        });
+        Object.assign(translations.en, {
+            'hero.proof': 'To reduce 3-putts, practice leaving the first putt close—not just trying to hole every putt.<br>PUTTIST II is a digital putting meter that trains distance control with numbers.',
+            'distance.title': 'Reducing 3-putts starts with distance control',
+            'distance.subtitle': 'Most putting practice focuses on holing short putts. But on the course, scoring improves when your first putt finishes reliably near the hole.',
+            'distance.problem_title': 'Problem: 3-putts begin with poor first-putt distance',
+            'distance.problem_desc': 'Repeating only short putts does not build long-putt distance feel.',
+            'distance.training_title': 'Training: Repeat the feel of leaving the ball near your target',
+            'distance.training_desc': 'Practice 3m, 5m, 10m, and 20m distance control with measurable feedback.',
+            'distance.change_title': 'Change: Build a standard, not just a feeling',
+            'distance.change_desc': 'Check today’s distance feel and reproduce it again tomorrow.',
+            'form.subtitle': 'Expo visitor benefit: apply now and receive a <span style="color: #FF8C42; font-weight: 700;">10% discount coupon</span>'
+        });
+        Object.assign(translations.ja, {
+            'hero.proof': '3パットを減らすには、最初のパットを入れる練習より、狙った距離に寄せる練習が先です。<br>PUTTIST IIは距離感を数値で鍛えるデジタル・パッティングメーターです。',
+            'distance.title': '3パットを減らす第一歩は距離感です',
+            'distance.subtitle': '多くのパッティング練習はカップに入れることに集中します。しかし実際のラウンドでスコアを縮める鍵は、最初のパットを安定してカップ近くに寄せる距離感です。',
+            'distance.problem_title': '問題：3パットは最初のパットの距離感から始まります',
+            'distance.problem_desc': '短いパットだけを繰り返しても、ロングパットの距離感は身につきにくいです。',
+            'distance.training_title': '練習：狙った距離に寄せる感覚を繰り返します',
+            'distance.training_desc': '3m、5m、10m、20mの距離感を数値で確認しながら練習します。',
+            'distance.change_title': '変化：感覚ではなく基準ができます',
+            'distance.change_desc': '今日の距離感を確認し、明日も同じ距離感を再現します。',
+            'form.subtitle': '展示会来場者特典！今お申し込みいただくと <span style="color: #FF8C42; font-weight: 700;">10%割引クーポン</span> を進呈します'
+        });
+        Object.assign(translations.zh, {
+            'hero.proof': '想减少三推，先练习把第一推停在目标距离内，而不只是练进洞。<br>PUTTIST II 是用数字训练推杆距离感的数字推杆测距器。',
+            'distance.title': '减少三推，从距离感开始',
+            'distance.subtitle': '多数推杆练习只关注进洞，但实际下场时，关键是让第一推稳定停在洞杯附近。',
+            'distance.problem_title': '问题：三推往往从第一推距离感开始',
+            'distance.problem_desc': '只重复短推，很难建立长推距离感。',
+            'distance.training_title': '训练：反复练习停在目标距离内的感觉',
+            'distance.training_desc': '通过数字反馈练习3m、5m、10m、20m的距离感。',
+            'distance.change_title': '变化：不再只靠感觉，而是建立标准',
+            'distance.change_desc': '确认今天的距离感，明天再次复现。',
+            'form.subtitle': '展会访客特别优惠！现在申请即可获得 <span style="color: #FF8C42; font-weight: 700;">10%优惠券</span>'
+        });
+        Object.assign(translations.vi, {
+            'hero.proof': 'Để giảm 3-putt, hãy luyện cú putt đầu tiên dừng gần mục tiêu, không chỉ luyện đưa bóng vào lỗ.<br>PUTTIST II là thước đo putting kỹ thuật số giúp luyện cảm giác khoảng cách bằng con số.',
+            'distance.title': 'Giảm 3-putt bắt đầu từ cảm giác khoảng cách',
+            'distance.subtitle': 'Phần lớn luyện putting chỉ tập trung vào đưa bóng vào lỗ. Nhưng khi ra sân, điểm số cải thiện khi cú putt đầu tiên dừng ổn định gần hố.',
+            'distance.problem_title': 'Vấn đề: 3-putt bắt đầu từ khoảng cách cú putt đầu tiên',
+            'distance.problem_desc': 'Chỉ lặp lại putt ngắn khó giúp cải thiện cảm giác putt dài.',
+            'distance.training_title': 'Luyện tập: lặp lại cảm giác đưa bóng vào vùng mục tiêu',
+            'distance.training_desc': 'Luyện cảm giác 3m, 5m, 10m, 20m với phản hồi bằng số.',
+            'distance.change_title': 'Thay đổi: có tiêu chuẩn, không chỉ cảm giác',
+            'distance.change_desc': 'Kiểm tra cảm giác khoảng cách hôm nay và tái hiện lại vào ngày mai.',
+            'form.subtitle': 'Ưu đãi khách tham quan hội chợ! Đăng ký ngay để nhận <span style="color: #FF8C42; font-weight: 700;">phiếu giảm giá 10%</span>'
+        });
+
         const languageLabels = { ko: '🇰🇷 한국어', en: '🇺🇸 English', ja: '🇯🇵 日本語', zh: '🇨🇳 中文', vi: '🇻🇳 Tiếng Việt' };
         let currentLanguage = localStorage.getItem('puttist-language') || 'ko';
 
         function changeLanguage(lang) {
+            if (!translations[lang]) lang = 'ko';
             currentLanguage = lang;
             localStorage.setItem('puttist-language', lang);
             document.documentElement.lang = lang;
-            document.getElementById('currentLang').textContent = languageLabels[lang];
+            document.getElementById('currentLang').textContent = languageLabels[lang] || languageLabels.ko;
             document.querySelectorAll('[data-i18n]').forEach(element => {
                 const key = element.getAttribute('data-i18n');
-                if (translations[lang] && translations[lang][key]) element.textContent = translations[lang][key];
+                const value = translations[lang]?.[key] ?? translations.ko?.[key];
+                if (value !== undefined) element.textContent = value;
+            });
+            document.querySelectorAll('[data-i18n-html]').forEach(element => {
+                const key = element.getAttribute('data-i18n-html');
+                const value = translations[lang]?.[key] ?? translations.ko?.[key];
+                if (value !== undefined) element.innerHTML = value;
             });
             document.getElementById('langDropdown').classList.remove('open');
         }
