@@ -10,7 +10,7 @@
     <!-- Open Graph -->
     <meta property="og:type" content="product">
     <meta property="og:title" content="PUTTIST PARK — 파크골프 레이저 퍼팅 연습기">
-    <meta property="og:description" content="20미터 어프로치는 퍼티의 부증수표. 파크골프도 PUTTIST!">
+    <meta property="og:description" content="실내에서 20m 거리감까지 완성하는 파크골프 퍼팅 연습기. 파크골프도 PUTTIST!">
     <meta property="og:image" content="https://puttist-deploy.vercel.app/assets/park/img/detail-01-03.webp">
     <meta property="og:url" content="https://puttist-deploy.vercel.app/park">
     <meta name="twitter:card" content="summary_large_image">
@@ -312,6 +312,14 @@
             margin-bottom: clamp(20px, 4vw, 32px);
             opacity: 0.9;
             font-size: clamp(0.9rem, 1.8vw, 1rem);
+        }
+        .hero-proof {
+            color: var(--color-cream);
+            margin: 0 0 clamp(18px, 3vw, 28px);
+            font-size: clamp(0.95rem, 1.9vw, 1.08rem);
+            line-height: 1.8;
+            font-weight: 600;
+            opacity: 0.95;
         }
         .hero-ctas {
             display: flex; flex-wrap: wrap; gap: 12px;
@@ -882,16 +890,17 @@
 
         /* Fade-in (JS 활성 시에만 숨김 → 안전한 fallback) */
         .fade-in { opacity: 1; transform: none; }
+        /* 안전 우선: 스크롤 애니메이션 실패 시 콘텐츠가 빈 공간처럼 사라지지 않도록 항상 표시 */
         .js-on .fade-in:not(.visible) {
-            opacity: 0; transform: translateY(20px);
+            opacity: 1; transform: none;
         }
         .js-on .fade-in {
-            transition: opacity 0.6s ease, transform 0.6s ease;
+            transition: opacity 0.3s ease, transform 0.3s ease;
         }
     </style>
 </head>
 <body>
-    <a href="#main" class="skip-link">본문 바로가기</a>
+    <a href="#main" class="skip-link" data-i18n="a11y.skip">본문 바로가기</a>
     <div id="scrollProgress"></div>
 
     <!-- ===== Navigation ===== -->
@@ -910,7 +919,7 @@
             </ul>
             <div class="nav-tools">
                 <button class="a11y-toggle" id="seniorToggle" aria-pressed="false" aria-label="시니어 모드 전환">
-                    🔍 큰글씨
+                    <span data-i18n="a11y.large_text">🔍 큰글씨</span>
                 </button>
                 <select class="lang-select" id="langSelect" aria-label="언어 선택">
                     <option value="ko">🇰🇷 한국어</option>
@@ -932,21 +941,28 @@
             <div class="hero-content">
                 <span class="hero-badge" data-i18n="hero.badge">PARK GOLF · 레이저 퍼팅</span>
                 <h1 id="hero-title" data-i18n-html="hero.title">
-                    20미터 어프로치는<br>
-                    <span class="accent">퍼티의 부증수표</span>
+                    실내에서 20m 거리감까지 완성하는<br>
+                    <span class="accent">파크골프 퍼팅 연습기</span>
                 </h1>
                 <p class="hero-subtitle" data-i18n="hero.subtitle">
-                    파크골프도 PUTTIST! 실내에서 1.5m~20m 거리감을 완성하세요.
+                    파크골프도 PUTTIST. 집에서 거리감, 방향, 스피드를 매일 연습하세요.
+                </p>
+                <p class="hero-proof" data-i18n-html="hero.proof">
+                    파크골프 스코어는 장타보다 거리감에서 갈립니다.<br>
+                    첫 퍼트를 홀 가까이 붙이는 연습, 집에서도 매일 할 수 있어야 합니다.
                 </p>
                 <p class="hero-description" data-i18n="hero.description">
                     레이저 에이밍 · 5가지 게임 모드 · 리튬 배터리 8시간 · Made in Korea
                 </p>
                 <div class="hero-ctas">
-                    <a href="#tiers" class="cta-button gold" data-i18n="hero.cta_primary">
-                        ⚡ 모델 비교하기
+                    <a href="#buy" class="cta-button gold" data-i18n="hero.cta_primary">
+                        고급형 구매하기
                     </a>
-                    <a href="#features" class="secondary-button" data-i18n="hero.cta_secondary">
-                        제품 살펴보기 →
+                    <a href="#tiers" class="secondary-button" data-i18n="hero.cta_secondary">
+                        일반형·고급형 비교하기
+                    </a>
+                    <a href="#buy" class="secondary-button" data-i18n="hero.cta_gift">
+                        선물 옵션 보기
                     </a>
                 </div>
                 <div class="hero-trust">
@@ -973,7 +989,7 @@
             <h2 class="section-title fade-in" id="problem-title" data-i18n="problem.title">
                 이런 고민, 있으시죠?
             </h2>
-            <p class="section-subtitle fade-in" data-i18n="problem.subtitle">
+            <p class="section-subtitle fade-in" data-i18n-html="problem.subtitle">
                 파크골프 스코어가 안 오르는 이유 — 대부분은 <strong>어프로치·퍼팅의 거리감</strong>입니다.
             </p>
             <div class="problem-grid">
@@ -993,13 +1009,25 @@
         </div>
     </section>
 
+    <!-- ===== Distance Training ===== -->
+    <section class="section distance-section" id="distance-training" aria-labelledby="distance-title">
+        <div class="container">
+            <h2 class="section-title fade-in" id="distance-title" data-i18n="distance.title">
+                파크골프도 거리감이 스코어를 만듭니다
+            </h2>
+            <p class="section-subtitle fade-in" data-i18n="distance.subtitle">
+                파크골프는 멀리 치는 힘보다, 원하는 곳에 정확히 보내는 감각이 중요합니다. 특히 어프로치와 퍼팅 거리감이 흔들리면 좋은 샷을 하고도 스코어를 잃기 쉽습니다. PUTTIST PARK는 실내에서도 1.5m부터 20m까지 거리감을 반복 훈련할 수 있도록 도와줍니다.
+            </p>
+        </div>
+    </section>
+
     <!-- ===== Solution 3-Icon ===== -->
     <section class="solution section" id="solution" aria-labelledby="solution-title">
         <div class="container">
             <h2 class="section-title fade-in" id="solution-title" data-i18n="solution.title">
                 PUTTIST PARK가 해결합니다
             </h2>
-            <p class="section-subtitle fade-in" data-i18n="solution.subtitle">
+            <p class="section-subtitle fade-in" data-i18n-html="solution.subtitle">
                 실내에서 필드와 같은 감각으로 <strong>거리·방향·스피드</strong>를 모두 훈련하세요.
             </p>
             <div class="solution-grid">
@@ -1035,7 +1063,7 @@
                         <source srcset="assets/park/img/detail-01-02.webp" type="image/webp">
                         <img src="assets/park/img/detail-01-02.webp"
                              alt="집 거실에서 PUTTIST PARK로 퍼팅 연습하는 여성"
-                             width="1080" height="1440" loading="lazy" decoding="async">
+                             width="1080" height="1440" loading="eager" decoding="async">
                     </picture>
                     <div class="usecase-body">
                         <h3 data-i18n="usecase.u1_title">🏠 집에서</h3>
@@ -1048,7 +1076,7 @@
                         <source srcset="assets/park/img/detail-01-13.webp" type="image/webp">
                         <img src="assets/park/img/detail-01-13.webp"
                              alt="파크골프 필드에서 어프로치하는 중장년 골퍼"
-                             width="1080" height="1440" loading="lazy" decoding="async">
+                             width="1080" height="1440" loading="eager" decoding="async">
                     </picture>
                     <div class="usecase-body">
                         <h3 data-i18n="usecase.u2_title">🌳 필드에서</h3>
@@ -1061,7 +1089,7 @@
                         <source srcset="assets/park/img/detail-02-01.webp" type="image/webp">
                         <img src="assets/park/img/detail-02-01.webp"
                              alt="PUTTIST PARK 박스 선물 패키지"
-                             width="1080" height="1440" loading="lazy" decoding="async">
+                             width="1080" height="1440" loading="eager" decoding="async">
                     </picture>
                     <div class="usecase-body">
                         <h3 data-i18n="usecase.u3_title">🎁 선물로</h3>
@@ -1126,13 +1154,13 @@
                 기록을 갱신하며 실전처럼 게임. 연습이 지루하지 않습니다.
             </p>
             <div class="gamemode-tabs" role="tablist" aria-label="게임 모드 선택">
-                <button role="tab" aria-selected="true" aria-controls="panel-normal" id="tab-normal" data-mode="normal">
+                <button role="tab" aria-selected="true" aria-controls="panel-normal" id="tab-normal" data-mode="normal" data-i18n="gamemode.normal_title">
                     노멀 모드
                 </button>
-                <button role="tab" aria-selected="false" aria-controls="panel-369" id="tab-369" data-mode="369">
+                <button role="tab" aria-selected="false" aria-controls="panel-369" id="tab-369" data-mode="369" data-i18n="gamemode.g369_title">
                     369 게임
                 </button>
-                <button role="tab" aria-selected="false" aria-controls="panel-7up" id="tab-7up" data-mode="7up">
+                <button role="tab" aria-selected="false" aria-controls="panel-7up" id="tab-7up" data-mode="7up" data-i18n="gamemode.g7up_title">
                     7UP 게임
                 </button>
             </div>
@@ -1176,7 +1204,7 @@
                     <div class="spec-label" data-i18n="specs.s1">최대 측정 거리</div>
                 </div>
                 <div class="spec-card fade-in">
-                    <div class="spec-value">7단</div>
+                    <div class="spec-value" data-i18n="specs.v2">7단</div>
                     <div class="spec-label" data-i18n="specs.s2">그린 스피드 조절</div>
                 </div>
                 <div class="spec-card fade-in">
@@ -1257,7 +1285,7 @@
             </h3>
             <div style="overflow-x: auto;">
                 <table class="compare-table">
-                    <caption class="sr-only">일반형과 고급형 상세 스펙 비교</caption>
+                    <caption class="sr-only" data-i18n="tiers.compare_caption">일반형과 고급형 상세 스펙 비교</caption>
                     <thead>
                         <tr>
                             <th scope="col" data-i18n="tiers.col_item">항목</th>
@@ -1294,7 +1322,7 @@
                 <source srcset="assets/park/img/detail-01-08.webp" type="image/webp">
                 <img src="assets/park/img/detail-01-08.webp"
                      alt="PUTTIST PARK 구성품: 본체, 실리콘 베이스, 매트, C-type 케이블, 볼 가이드 9개, 충전기"
-                     width="1080" height="1440" loading="lazy" decoding="async">
+                     width="1080" height="1440" loading="eager" decoding="async">
             </picture>
         </div>
     </section>
@@ -1303,8 +1331,7 @@
     <section class="gift-callout" aria-labelledby="gift-title">
         <h2 id="gift-title" data-i18n="gift.title">🎁 선물용으로 정말 좋습니다</h2>
         <p data-i18n="gift.desc">
-            파크골프에 푹 빠지신 부모님, 지인들에게 가장 뜻깊고 기쁜 선물.
-            무료 선물 포장 옵션과 감사 카드 샘플을 제공합니다.
+            파크골프를 좋아하시는 부모님께는 한 번 쓰고 마는 선물보다 매일 연습하며 즐길 수 있는 선물이 더 오래 남습니다. PUTTIST PARK는 집에서도 파크골프 감각을 이어갈 수 있는 실용적인 선물입니다.
         </p>
         <a href="#buy" class="cta-button" data-i18n="gift.cta">선물 옵션 자세히 →</a>
     </section>
@@ -1328,7 +1355,7 @@
                         레이저가 있어서 방향 잡기가 훨씬 수월하다고 하십니다."
                     </blockquote>
                     <div class="review-author">
-                        <div class="review-avatar" aria-hidden="true">김</div>
+                        <div class="review-avatar" aria-hidden="true" data-i18n="reviews.r1_avatar">김</div>
                         <div>
                             <div><strong data-i18n="reviews.r1_name">김○○ 님</strong></div>
                             <div class="review-meta" data-i18n="reviews.r1_meta">선물 구매 · 2025.12</div>
@@ -1342,7 +1369,7 @@
                         필드에서 바로 효과를 봤습니다."
                     </blockquote>
                     <div class="review-author">
-                        <div class="review-avatar" aria-hidden="true">박</div>
+                        <div class="review-avatar" aria-hidden="true" data-i18n="reviews.r2_avatar">박</div>
                         <div>
                             <div><strong data-i18n="reviews.r2_name">박○○ 님</strong></div>
                             <div class="review-meta" data-i18n="reviews.r2_meta">파크골프 경력 4년 · 2026.02</div>
@@ -1356,7 +1383,7 @@
                         매트 품질이 예상보다 고급스러워서 만족도가 높아요."
                     </blockquote>
                     <div class="review-author">
-                        <div class="review-avatar" aria-hidden="true">이</div>
+                        <div class="review-avatar" aria-hidden="true" data-i18n="reviews.r3_avatar">이</div>
                         <div>
                             <div><strong data-i18n="reviews.r3_name">이○○ 님</strong></div>
                             <div class="review-meta" data-i18n="reviews.r3_meta">자기 연습 · 2026.03</div>
@@ -1427,6 +1454,9 @@
             <h2 id="final-cta-title" data-i18n="cta.title">
                 오늘, 파크골프 거리감을 완성하세요
             </h2>
+            <p class="section-subtitle fade-in" data-i18n="cta.subtitle">
+                멀리 치는 것보다 중요한 건 원하는 거리만큼 정확히 보내는 감각입니다. PUTTIST PARK로 집에서도 매일 거리감을 확인하세요.
+            </p>
             <p class="delivery-msg" id="deliveryMsg" aria-live="polite">
                 <!-- JS로 동적 삽입 -->
             </p>
@@ -1511,13 +1541,17 @@
                 'nav.features': '機能', 'nav.gamemode': 'ゲーム', 'nav.tiers': 'モデル比較',
                 'nav.reviews': 'レビュー', 'nav.faq': 'FAQ', 'nav.buy': '購入',
                 'hero.badge': 'PARK GOLF・レーザーパッティング',
-                'hero.title': '20メートルアプローチは<br><span class="accent">パッティングの正解</span>',
-                'hero.subtitle': 'パークゴルフもPUTTIST!室内で1.5m〜20mの距離感を完成。',
+                'hero.title': '室内で20mの距離感まで完成する<br><span class="accent">パークゴルフ練習器</span>',
+                'hero.subtitle': 'パークゴルフもPUTTIST。自宅で距離感・方向・スピードを毎日練習できます。',
+                'hero.proof': 'パークゴルフのスコアは飛距離より距離感で変わります。<br>最初のパットをカップ近くに寄せる練習を、自宅でも毎日続けられます。',
                 'hero.description': 'レーザー照準・5ゲームモード・リチウムバッテリー8時間・韓国製',
-                'hero.cta_primary': '⚡ モデルを比較',
-                'hero.cta_secondary': '製品を見る →',
+                'hero.cta_primary': 'プレミアムを購入',
+                'hero.cta_secondary': 'モデルを比較',
+                'hero.cta_gift': 'ギフトを見る',
                 'hero.trust1': '1年無償A/S', 'hero.trust2': '2日以内出荷', 'hero.trust3': '韓国製造',
                 'problem.title': 'こんなお悩みありませんか?',
+                'distance.title': 'パークゴルフも距離感がスコアを作ります',
+                'distance.subtitle': 'パークゴルフでは遠くへ飛ばす力より、狙った場所へ正確に送る感覚が重要です。PUTTIST PARKは室内でも1.5mから20mまで距離感を繰り返し練習できます。',
                 'solution.title': 'PUTTIST PARKが解決します',
                 'features.title': '6つの核心機能',
                 'gamemode.title': '楽しく、毎日、自然に',
@@ -1525,7 +1559,9 @@
                 'tiers.std_name': 'スタンダード', 'tiers.prm_name': 'プレミアム',
                 'reviews.title': 'ご利用者の声',
                 'faq.title': 'よくあるご質問',
+                'gift.desc': 'パークゴルフが好きなご両親には、一度きりの贈り物より毎日楽しめる練習ギフトが長く残ります。PUTTIST PARKは自宅でも感覚を保てる実用的なギフトです。',
                 'cta.title': '今日、パークゴルフの距離感を完成させよう',
+                'cta.subtitle': '遠くへ飛ばすことより、狙った距離へ正確に送る感覚が大切です。PUTTIST PARKで毎日距離感を確認しましょう。',
                 'cta.naver': 'NAVERストアで購入 →',
                 'cta.back': '← PUTTIST II も見る'
             },
@@ -1533,13 +1569,17 @@
                 'nav.features': 'Features', 'nav.gamemode': 'Games', 'nav.tiers': 'Models',
                 'nav.reviews': 'Reviews', 'nav.faq': 'FAQ', 'nav.buy': 'Buy',
                 'hero.badge': 'PARK GOLF · LASER PUTTING',
-                'hero.title': 'The 20-Meter Approach,<br><span class="accent">The Putting Standard</span>',
-                'hero.subtitle': 'PUTTIST for Park Golf. Master distance 1.5m~20m indoors.',
+                'hero.title': 'Complete 20m distance control indoors<br><span class="accent">with a park-golf putting trainer</span>',
+                'hero.subtitle': 'PUTTIST for Park Golf. Practice distance, direction, and speed at home every day.',
+                'hero.proof': 'Park-golf scores are shaped by distance control, not just long shots.<br>Practice leaving your first putt close to the hole at home every day.',
                 'hero.description': 'Laser aiming · 5 game modes · 8h Li-ion · Made in Korea',
-                'hero.cta_primary': '⚡ Compare Models',
-                'hero.cta_secondary': 'Explore product →',
+                'hero.cta_primary': 'Buy Premium',
+                'hero.cta_secondary': 'Compare Models',
+                'hero.cta_gift': 'Gift Options',
                 'hero.trust1': '1-yr warranty', 'hero.trust2': 'Ships in 2 days', 'hero.trust3': 'Made in Korea',
                 'problem.title': 'Sound familiar?',
+                'distance.title': 'Distance control shapes your park-golf score',
+                'distance.subtitle': 'In park golf, sending the ball the intended distance matters more than simply hitting it far. PUTTIST PARK helps you practice 1.5m to 20m distance control indoors.',
                 'solution.title': 'PUTTIST PARK solves it.',
                 'features.title': '6 Core Features',
                 'gamemode.title': 'Fun, daily, natural practice',
@@ -1547,11 +1587,141 @@
                 'tiers.std_name': 'Standard', 'tiers.prm_name': 'Premium',
                 'reviews.title': 'Customer Reviews',
                 'faq.title': 'Frequently Asked',
+                'gift.desc': 'For parents who love park golf, a gift they can enjoy and practice with every day lasts longer. PUTTIST PARK is a practical way to keep their distance feel at home.',
                 'cta.title': 'Complete your park-golf distance today',
+                'cta.subtitle': 'More important than hitting far is sending the ball the intended distance. Check your distance feel at home every day with PUTTIST PARK.',
                 'cta.naver': 'Buy on NAVER Store →',
                 'cta.back': '← See PUTTIST II too'
             }
         };
+
+
+        // ===== P1 repair: translate every existing data-i18n key, not only top sections =====
+        Object.assign(i18n.ja, {
+            'a11y.skip': '本文へスキップ', 'a11y.large_text': '🔍 大きな文字',
+            'problem.subtitle': 'パークゴルフのスコアが伸びない理由は、多くの場合 <strong>アプローチとパッティングの距離感</strong> です。',
+            'problem.p1_title': '練習場所がない',
+            'problem.p1_desc': 'パークゴルフ練習場は遠く、費用もかかります。自宅で20mの距離感をどう練習しますか？',
+            'problem.p2_title': '3パットが痛い',
+            'problem.p2_desc': '良いスコアにはパッティングが不可欠です。パークゴルフでは3パットがスコアを大きく削ります。',
+            'problem.p3_title': 'ギフト選びに迷う',
+            'problem.p3_desc': 'パークゴルフに夢中のご両親や知人へ、本当に喜ばれるギフトを探していませんか？',
+            'solution.subtitle': '室内でもフィールドのような感覚で <strong>距離・方向・スピード</strong> をすべて練習できます。',
+            'solution.s1_title': '20m精密測定',
+            'solution.s1_desc': '1.5mから20mまで。体で覚えた力加減を正確な距離に換算します。',
+            'solution.s2_title': 'レーザー照準',
+            'solution.s2_desc': '正確な打点と方向をレーザーで可視化。左右・中央の警告にも対応します。',
+            'solution.s3_title': '5つのゲーム',
+            'solution.s3_desc': '369ゲーム、7UP、ノーマルモードなど、飽きずに自然と上達できます。',
+            'usecase.title': 'どこでも、誰でも、目的に合わせて',
+            'usecase.u1_title': '🏠 自宅で',
+            'usecase.u1_desc': 'リビングやオフィスなど、どこでも約5分で設置。雨の日も毎日練習できます。',
+            'usecase.u2_title': '🌳 フィールドで',
+            'usecase.u2_desc': 'プレミアムは8時間バッテリーで、待ち時間にもすぐパット確認ができます。',
+            'usecase.u3_title': '🎁 ギフトに',
+            'usecase.u3_desc': 'パークゴルフ好きのご両親・知人へ、実用的で喜ばれるギフトです。',
+            'features.subtitle': 'パークゴルフ練習に必要な機能だけを厳選しました。',
+            'features.f1_title': '20m距離測定',
+            'features.f1_desc': '室内で最大20mまで、打球の力を正確に測定します。',
+            'features.f2_title': 'レーザー照準',
+            'features.f2_desc': 'プレミアム専用。正確な打点と方向をレーザーでガイドします。',
+            'features.f3_title': '7段階グリーンスピード',
+            'features.f3_desc': '-3から+3まで。フィールド環境に合わせてスピードを調整できます。',
+            'features.f4_title': 'リチウムバッテリー8時間',
+            'features.f4_desc': 'プレミアムは満充電で8時間ワイヤレス使用。どこでも自由に使えます。',
+            'features.f5_title': '静音センサー',
+            'features.f5_desc': 'シリコン・クッションセンサーで、マンションでも静かに練習できます。',
+            'features.f6_title': '韓国製造',
+            'features.f6_desc': '設計から組立まで韓国国内。高い耐久性とA/Sを提供します。',
+            'gamemode.subtitle': '記録更新を楽しみながら実戦感覚で練習できます。',
+            'gamemode.normal_title': 'ノーマルモード',
+            'gamemode.normal_meta': '基本状態で楽しむ自由パッティング練習',
+            'gamemode.normal_desc': '電源を入れてすぐ使える自由練習モード。距離と方向を自由に設定し、体で覚える基本トレーニングです。初めての方におすすめです。',
+            'gamemode.g369_title': '369ゲーム',
+            'gamemode.g369_meta': '3m・6m・9mの距離合わせ、最高111点',
+            'gamemode.g369_desc': '3m、6m、9mをそれぞれ3回以内で成功させるゲーム。最高111点。距離別の力加減を素早く高めます。',
+            'gamemode.g7up_title': '7UPゲーム',
+            'gamemode.g7up_meta': '1mずつ上がる段階別距離測定、最高7点',
+            'gamemode.g7up_desc': '3mから9mまで1mずつ段階的に合わせるゲーム。最高7点。精密な距離感を段階的に完成させます。',
+            'specs.title': '製品仕様',
+            'specs.s1': '最大測定距離', 'specs.v2': '7段階', 'specs.s2': 'グリーンスピード調整', 'specs.s3': 'リチウムバッテリー（プレミアム）', 'specs.s4': '専用マット（cm）', 'specs.s5': 'ゲームモード',
+            'tiers.subtitle': 'スタンダードとプレミアム、2つのモデルをご用意しています。',
+            'tiers.std_tagline': 'コスパ・室内入門',
+            'tiers.std_f1': '有線アダプター電源', 'tiers.std_f2': '距離測定（1.5〜20m）', 'tiers.std_f3': '5種類のゲームモード', 'tiers.std_f4': '7段階グリーンスピード', 'tiers.std_f5': '大型LCDディスプレイ', 'tiers.std_f6': 'シリコン・クッションセンサー', 'tiers.std_f7': 'レーザー照準', 'tiers.std_f8': 'リチウムバッテリー',
+            'tiers.std_cta': 'スタンダードを購入',
+            'tiers.prm_badge': '🔥 BEST・購入者の60%が選択',
+            'tiers.prm_tagline': 'フィールド・ギフト・本格練習',
+            'tiers.prm_f1': 'リチウムバッテリー8時間 ★', 'tiers.prm_f2': 'レーザー照準 ★', 'tiers.prm_f3': 'C-type充電ケーブル付属', 'tiers.prm_f4': 'シリコンボールガイド×9', 'tiers.prm_f5': 'パーク用マット30×150cm', 'tiers.prm_f6': 'USB充電アダプター', 'tiers.prm_f7': 'スタンダードの全機能', 'tiers.prm_f8': 'フィールドでワイヤレス使用可能',
+            'tiers.prm_cta': 'プレミアムを購入 ★',
+            'tiers.compare_title': '詳細比較表', 'tiers.compare_caption': 'スタンダードとプレミアムの詳細仕様比較', 'tiers.col_item': '項目', 'tiers.col_std': 'スタンダード', 'tiers.col_prm': 'プレミアム',
+            'tiers.row_power': '電源方式', 'tiers.std_power': '有線アダプター', 'tiers.prm_power': 'リチウムバッテリー8h', 'tiers.row_laser': 'レーザー照準', 'tiers.row_distance': '距離測定', 'tiers.row_speed': 'グリーンスピード', 'tiers.speed_val': '7段階（-3〜+3）', 'tiers.speed_val2': '7段階（-3〜+3）', 'tiers.row_game': 'ゲームモード', 'tiers.game_val': '5種類', 'tiers.game_val2': '5種類', 'tiers.row_mat': '専用マット', 'tiers.mat_opt': 'オプション', 'tiers.mat_inc': '付属（30×150cm）', 'tiers.row_field': 'フィールド携帯', 'tiers.row_target': 'おすすめ対象', 'tiers.target_std': '室内入門', 'tiers.target_prm': '本格・ギフト',
+            'unboxing.title': '製品構成品', 'unboxing.subtitle': 'モデル別の同梱品をご確認ください。',
+            'gift.title': '🎁 ギフトにも最適です', 'gift.cta': 'ギフトオプションを見る →',
+            'reviews.count': '/ 5.0・実使用者ベース',
+            'reviews.r1_text': '「父の65歳の誕生日に贈りました。リビングで毎日練習して、とても喜んでいます。レーザーがあるので方向を合わせやすいそうです。」', 'reviews.r1_avatar': 'K', 'reviews.r1_name': 'Kim様', 'reviews.r1_meta': 'ギフト購入・2025.12',
+            'reviews.r2_text': '「3パットがかなり減りました。369ゲームで練習すると距離感がしっかりつかめます。フィールドで効果を感じました。」', 'reviews.r2_avatar': 'P', 'reviews.r2_name': 'Park様', 'reviews.r2_meta': 'パークゴルフ歴4年・2026.02',
+            'reviews.r3_text': '「マンションでも静音なので早朝に練習できます。マットの質感も想像以上に良く、満足しています。」', 'reviews.r3_avatar': 'L', 'reviews.r3_name': 'Lee様', 'reviews.r3_meta': '個人練習・2026.03',
+            'faq.q1': 'バッテリー8時間で何ラウンド使えますか？', 'faq.a1': '一般的なパークゴルフ1ラウンド（18ホール）は約2〜3時間です。満充電なら2〜3ラウンド以上連続使用でき、移動中も追加充電なしで安心です。',
+            'faq.q2': 'レーザーは明るい屋外でも見えますか？', 'faq.a2': '高輝度レーザーにより明るい屋外でも視認性を確保しています。ただし強い直射日光下では視野角の調整をおすすめします。',
+            'faq.q3': '自宅で20mをどう練習するのですか？', 'faq.a3': 'PUTTIST PARKはボールに加わった力をセンサーで測定し、「この力なら何m転がるか」をLCDに表示します。実際に20m転がさなくても、1.5mほどのスペースで距離感を練習できます。',
+            'faq.q4': 'A/S保証期間と範囲は？', 'faq.a4': '購入日から1年間の無償A/Sを提供します。通常使用中のハードウェア不良は無償修理または交換対象です。過失による破損は有償修理となる場合があります。',
+            'faq.q5': 'ギフト包装や税金計算書は可能ですか？', 'faq.a5': '無料ギフト包装とメッセージカード同梱オプションをご用意しています。税金計算書はNAVERスマートストア注文時に事業者購入を選択して発行できます。',
+            'faq.q6': 'スタンダードとプレミアムの主な違いは？', 'faq.a6': 'スタンダードは有線電源でレーザー照準がありません。プレミアムは8時間バッテリーとレーザー照準が追加されます。室内中心ならスタンダード、携帯・本格練習・ギフトならプレミアムがおすすめです。',
+            'trust.t1_title': '2日以内出荷', 'trust.t1_label': '平日14時前のご注文', 'trust.t2_title': '14日交換', 'trust.t2_label': '単純な心変わりも可能', 'trust.t3_title': '1年無償A/S', 'trust.t3_label': 'ハードウェア不良を幅広く対応', 'trust.t4_title': '無利息分割', 'trust.t4_label': 'カード会社別 最大6か月',
+            'footer.tagline': 'パークゴルフ・レーザーパッティング練習器・Made in Korea', 'footer.product': '製品', 'footer.features': '機能', 'footer.tiers': 'モデル比較', 'footer.faq': 'FAQ', 'footer.ii': 'PUTTIST II', 'footer.support': 'サポート', 'footer.privacy': 'プライバシーポリシー', 'footer.terms': '利用規約', 'footer.store': 'NAVERスマートストア'
+        });
+
+        Object.assign(i18n.en, {
+            'a11y.skip': 'Skip to content', 'a11y.large_text': '🔍 Large text',
+            'problem.subtitle': 'The reason many park-golf scores stall is often <strong>approach and putting distance control</strong>.',
+            'problem.p1_title': 'Nowhere to practice',
+            'problem.p1_desc': 'Park-golf practice ranges can be far and costly. How do you practice 20m distance control at home?',
+            'problem.p2_title': '3-putts are costly',
+            'problem.p2_desc': 'Putting is essential for a good score. In park golf, 3-putts quickly eat into your score.',
+            'problem.p3_title': 'Hard to choose a gift',
+            'problem.p3_desc': 'Looking for a gift your park-golf-loving parents or friends will truly enjoy?',
+            'solution.subtitle': 'Practice <strong>distance, direction, and speed</strong> indoors with a field-like feel.',
+            'solution.s1_title': '20m precision measurement', 'solution.s1_desc': 'From 1.5m to 20m. Convert your feel for force into measurable distance.',
+            'solution.s2_title': 'Laser aiming', 'solution.s2_desc': 'Visualize the correct impact point and direction with laser guidance, including left/right/center alerts.',
+            'solution.s3_title': '5 game modes', 'solution.s3_desc': '369 Game, 7UP, Normal Mode, and more—improve naturally without boring repetition.',
+            'usecase.title': 'Anywhere, for anyone, for any purpose',
+            'usecase.u1_title': '🏠 At home', 'usecase.u1_desc': 'Set up in about 5 minutes in a living room or office. Practice every day, even when it rains.',
+            'usecase.u2_title': '🌳 On the field', 'usecase.u2_desc': 'The Premium model has an 8-hour battery, so you can check your putting even during field waiting time.',
+            'usecase.u3_title': '🎁 As a gift', 'usecase.u3_desc': 'A meaningful, practical gift for parents or friends who love park golf.',
+            'features.subtitle': 'Only the essentials for park-golf practice.',
+            'features.f1_title': '20m distance measurement', 'features.f1_desc': 'Measure putting force indoors up to an equivalent 20 meters.',
+            'features.f2_title': 'Laser aiming', 'features.f2_desc': 'Premium only. Laser guidance helps with accurate impact and direction.',
+            'features.f3_title': '7 green-speed levels', 'features.f3_desc': 'Adjust speed from -3 to +3 to match field conditions.',
+            'features.f4_title': '8h lithium battery', 'features.f4_desc': 'Premium runs wirelessly for up to 8 hours on a full charge.',
+            'features.f5_title': 'Quiet sensor', 'features.f5_desc': 'Silicone cushion sensor keeps practice quiet, even in apartments.',
+            'features.f6_title': 'Made in Korea', 'features.f6_desc': 'Designed and assembled in Korea for durability and reliable support.',
+            'gamemode.subtitle': 'Practice like a game and keep improving your records.',
+            'gamemode.normal_title': 'Normal Mode', 'gamemode.normal_meta': 'Free putting practice in the basic mode', 'gamemode.normal_desc': 'Turn it on and start free putting practice. Set distance and direction freely and build your basic feel. Recommended for first-time users.',
+            'gamemode.g369_title': '369 Game', 'gamemode.g369_meta': 'Hit 3m, 6m, and 9m targets · max 111 points', 'gamemode.g369_desc': 'Complete 3m, 6m, and 9m targets within three attempts each. Max score 111. Quickly improves force control at different distances.',
+            'gamemode.g7up_title': '7UP Game', 'gamemode.g7up_meta': 'Step-by-step distance challenge · max 7 points', 'gamemode.g7up_desc': 'Match distances from 3m to 9m in 1m steps. Max score 7. Build precise distance control progressively.',
+            'specs.title': 'Specifications', 'specs.s1': 'Maximum measured distance', 'specs.v2': '7 levels', 'specs.s2': 'Green-speed control', 'specs.s3': 'Lithium battery (Premium)', 'specs.s4': 'Dedicated mat (cm)', 'specs.s5': 'Game modes',
+            'tiers.subtitle': 'Choose between Standard and Premium models.',
+            'tiers.std_tagline': 'Value · indoor starter',
+            'tiers.std_f1': 'Wired adapter power', 'tiers.std_f2': 'Distance measurement (1.5–20m)', 'tiers.std_f3': '5 game modes', 'tiers.std_f4': '7 green-speed levels', 'tiers.std_f5': 'Large LCD display', 'tiers.std_f6': 'Silicone cushion sensor', 'tiers.std_f7': 'Laser aiming', 'tiers.std_f8': 'Lithium battery',
+            'tiers.std_cta': 'Buy Standard', 'tiers.prm_badge': '🔥 BEST · chosen by 60% of buyers', 'tiers.prm_tagline': 'Field · gift · serious practice',
+            'tiers.prm_f1': '8h lithium battery ★', 'tiers.prm_f2': 'Laser aiming ★', 'tiers.prm_f3': 'C-type charging cable included', 'tiers.prm_f4': 'Silicone ball guides × 9', 'tiers.prm_f5': 'Park mat 30×150cm', 'tiers.prm_f6': 'USB charging adapter', 'tiers.prm_f7': 'All Standard features', 'tiers.prm_f8': 'Wireless field use',
+            'tiers.prm_cta': 'Buy Premium ★', 'tiers.compare_title': 'Detailed comparison', 'tiers.compare_caption': 'Detailed specification comparison between Standard and Premium', 'tiers.col_item': 'Item', 'tiers.col_std': 'Standard', 'tiers.col_prm': 'Premium',
+            'tiers.row_power': 'Power', 'tiers.std_power': 'Wired adapter', 'tiers.prm_power': '8h lithium battery', 'tiers.row_laser': 'Laser aiming', 'tiers.row_distance': 'Distance measurement', 'tiers.row_speed': 'Green speed', 'tiers.speed_val': '7 levels (-3~+3)', 'tiers.speed_val2': '7 levels (-3~+3)', 'tiers.row_game': 'Game modes', 'tiers.game_val': '5 modes', 'tiers.game_val2': '5 modes', 'tiers.row_mat': 'Dedicated mat', 'tiers.mat_opt': 'Optional', 'tiers.mat_inc': 'Included (30×150cm)', 'tiers.row_field': 'Field portability', 'tiers.row_target': 'Recommended for', 'tiers.target_std': 'Indoor starter', 'tiers.target_prm': 'Serious practice · gift',
+            'unboxing.title': 'What is included', 'unboxing.subtitle': 'Check what comes with each model.',
+            'gift.title': '🎁 Great as a gift', 'gift.cta': 'See gift options →',
+            'reviews.count': '/ 5.0 · based on real users',
+            'reviews.r1_text': '“I gave it to my father for his 65th birthday. He practices in the living room every day and loves it. The laser makes direction much easier.”', 'reviews.r1_avatar': 'K', 'reviews.r1_name': 'Kim', 'reviews.r1_meta': 'Gift purchase · 2025.12',
+            'reviews.r2_text': '“My 3-putts have dropped a lot. Practicing with the 369 Game really helped my distance control. I felt the effect on the course.”', 'reviews.r2_avatar': 'P', 'reviews.r2_name': 'Park', 'reviews.r2_meta': '4 years in park golf · 2026.02',
+            'reviews.r3_text': '“It is quiet enough to practice early in the morning in my apartment. The mat quality is better than expected.”', 'reviews.r3_avatar': 'L', 'reviews.r3_name': 'Lee', 'reviews.r3_meta': 'Self practice · 2026.03',
+            'faq.q1': 'How many rounds does the 8-hour battery cover?', 'faq.a1': 'A typical 18-hole park-golf round takes about 2–3 hours. A full charge can cover more than 2–3 rounds, so you can use it confidently without charging between rounds.',
+            'faq.q2': 'Is the laser visible in bright outdoor light?', 'faq.a2': 'The high-brightness laser is designed for outdoor visibility. In very strong direct sunlight, adjusting the viewing angle is recommended.',
+            'faq.q3': 'How can I practice 20m at home?', 'faq.a3': 'PUTTIST PARK measures the force applied to the ball and displays the equivalent rolling distance on the LCD. You do not need 20m of floor space; about 1.5m is enough to train distance feel.',
+            'faq.q4': 'What is the A/S warranty period and coverage?', 'faq.a4': 'One year of free A/S is provided from the purchase date. Hardware defects during normal use are covered for repair or replacement. Damage caused by user fault may be paid service.',
+            'faq.q5': 'Are gift wrapping and tax invoices available?', 'faq.a5': 'Free gift wrapping and message-card options are available. Tax invoices can be issued by selecting business purchase on NAVER Smart Store.',
+            'faq.q6': 'What is the biggest difference between Standard and Premium?', 'faq.a6': 'Standard uses wired power and has no laser aiming. Premium adds an 8-hour lithium battery and laser aiming. Standard is enough for indoor-only use; Premium is recommended for field carry, serious practice, or gifts.',
+            'trust.t1_title': 'Ships in 2 days', 'trust.t1_label': 'Orders before 2 PM weekdays', 'trust.t2_title': '14-day exchange', 'trust.t2_label': 'Even for simple change of mind', 'trust.t3_title': '1-year free A/S', 'trust.t3_label': 'Broad hardware defect coverage', 'trust.t4_title': 'Interest-free installments', 'trust.t4_label': 'Up to 6 months by card issuer',
+            'footer.tagline': 'Park-golf laser putting trainer · Made in Korea', 'footer.product': 'Product', 'footer.features': 'Features', 'footer.tiers': 'Model comparison', 'footer.faq': 'FAQ', 'footer.ii': 'PUTTIST II', 'footer.support': 'Support', 'footer.privacy': 'Privacy Policy', 'footer.terms': 'Terms of Service', 'footer.store': 'NAVER Smart Store'
+        });
 
         function t(key, lang) {
             return i18n[lang]?.[key] ?? null;
@@ -1577,6 +1747,25 @@
             localStorage.setItem('park-lang', lang);
         }
 
+        function updateDeliveryMessage(lang) {
+            const msg = document.getElementById('deliveryMsg');
+            if (!msg) return;
+            const d = new Date();
+            const now = d.getHours();
+            const addDays = now < 14 ? 2 : 3;
+            d.setDate(d.getDate() + addDays);
+            if (lang === 'ja') {
+                const weekdays = ['日','月','火','水','木','金','土'];
+                msg.textContent = `🚚 今注文すると${d.getMonth()+1}月${d.getDate()}日（${weekdays[d.getDay()]}）到着予定`;
+            } else if (lang === 'en') {
+                const weekdays = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+                msg.textContent = `🚚 Order now, estimated arrival ${d.getMonth()+1}/${d.getDate()} (${weekdays[d.getDay()]})`;
+            } else {
+                const weekdays = ['일','월','화','수','목','금','토'];
+                msg.textContent = `🚚 지금 주문하면 ${d.getMonth()+1}월 ${d.getDate()}일(${weekdays[d.getDay()]}요일) 도착 예정`;
+            }
+        }
+
         // 브라우저 언어 기반 자동 감지 (첫 방문만)
         function detectLang() {
             const saved = localStorage.getItem('park-lang');
@@ -1597,11 +1786,19 @@
             const langSelect = document.getElementById('langSelect');
             langSelect.value = initialLang;
             if (initialLang !== 'ko') applyLanguage(initialLang);
+            updateDeliveryMessage(initialLang);
 
             langSelect.addEventListener('change', (e) => {
                 const lang = e.target.value;
-                if (lang === 'ko') location.reload(); // 기본 HTML이 한국어이므로 리로드가 가장 깔끔
-                else applyLanguage(lang);
+                // 한국어는 기본 HTML을 다시 읽어야 하므로, 먼저 저장값을 ko로 바꾼 뒤 리로드한다.
+                // 기존 코드처럼 저장 없이 reload하면 detectLang()이 이전 ja/en 값을 다시 읽어 일본어/영어에 머무른다.
+                if (lang === 'ko') {
+                    localStorage.setItem('park-lang', 'ko');
+                    location.reload();
+                    return;
+                }
+                applyLanguage(lang);
+                updateDeliveryMessage(lang);
             });
 
             // 햄버거 메뉴
@@ -1666,18 +1863,7 @@
                 progressBar.style.width = `${scrolled}%`;
             }, { passive: true });
 
-            // 배송 예정 메시지
-            const msg = document.getElementById('deliveryMsg');
-            if (msg) {
-                const d = new Date();
-                const now = d.getHours();
-                // 오후 2시 이전 주문 → 내일 출고 → 모레 도착
-                const addDays = now < 14 ? 2 : 3;
-                d.setDate(d.getDate() + addDays);
-                const weekdays = ['일','월','화','수','목','금','토'];
-                const w = weekdays[d.getDay()];
-                msg.textContent = `🚚 지금 주문하면 ${d.getMonth()+1}월 ${d.getDate()}일(${w}요일) 도착 예정`;
-            }
+            // 배송 예정 메시지는 언어 초기화 직후 updateDeliveryMessage()에서 처리
 
             // Fade-in on scroll
             if ('IntersectionObserver' in window) {
